@@ -122,17 +122,17 @@ impl CoreConfig {
             env::var("FILENAME_TEMPLATE").unwrap_or_else(|_| String::from(DEFAULT_TEMPLATE));
 
         Ok(CoreConfig {
-            log_level,
-            ignore_crio,
             dot_env_path,
-            image_command,
-            use_crio_config,
-            crictl_config_path,
             base_path,
+            crictl_config_path,
+            log_level,
+            log_length,
+            use_crio_config,
+            ignore_crio,
+            image_command,
             bin_path,
             os_hostname,
             filename_template,
-            log_length,
             params,
         })
     }
