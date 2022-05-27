@@ -413,7 +413,7 @@ fn generate_crio_config(host_location: &str) -> Result<(), std::io::Error> {
     info!("Generating crio file");
     let destination = format!("{}/{}", host_location, "crictl.yaml");
     let mut crictl_file = File::create(destination)?;
-    let text = "runtime-endpoint: unix:///run/containerd/containerd.sock\nimage-endpoint: unix:///run/containerd/containerd.sock\ntimeout: 2\ndebug: false\npull-image-on-create: false";
+    let text = "runtime-endpoint: unix:///var/run/dockershim.sock\nimage-endpoint: unix:///var/run/dockershim.sock\ntimeout: 2\ndebug: false\npull-image-on-create: false";
     crictl_file.write_all(text.as_bytes())?;
     crictl_file.flush()?;
     Ok(())
