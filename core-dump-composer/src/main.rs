@@ -34,7 +34,6 @@ fn main() -> Result<(), anyhow::Error> {
     );
     info!("{}", envloadmsg);
     info!("Set logfile to: {:?}", &log_path);
-    debug!("Creating dump for {}", cc.get_templated_name());
 
     let l_crictl_config_path = cc.crictl_config_path.clone();
 
@@ -75,6 +74,8 @@ fn main() -> Result<(), anyhow::Error> {
         .unwrap_or("unknown");
 
     cc.set_podname(podname.to_string());
+
+    debug!("Creating dump for {}", cc.get_templated_name());
 
     // Create the base zip file that we are going to put everything into
     let options = FileOptions::default()
