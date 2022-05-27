@@ -29,8 +29,8 @@ fn main() -> Result<(), anyhow::Error> {
     debug!("Arguments: {:?}", env::args());
 
     info!(
-        "Environment config:\n IGNORE_CRIO={}\nCRIO_IMAGE_CMD={}\nUSE_CRIO_CONF={}",
-        cc.ignore_crio, cc.image_command, cc.use_crio_config
+        "Environment config:\n IGNORE_CRIO={}\nCRIO_IMAGE_CMD={}\nUSE_CRIO_CONF={}\nFILENAME_TEMPLATE={}",
+        cc.ignore_crio, cc.image_command, cc.use_crio_config, cc.filename_template
     );
     info!("{}", envloadmsg);
     info!("Set logfile to: {:?}", &log_path);
