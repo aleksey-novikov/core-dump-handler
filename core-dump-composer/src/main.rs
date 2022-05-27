@@ -311,35 +311,35 @@ fn main() -> Result<(), anyhow::Error> {
                     process::exit(1);
                 }
             };
-            debug!("found img_id {}", img_ref);
-            let image = match cli.image(img_ref) {
-                Ok(v) => v,
-                Err(e) => {
-                    error!("Error finding image:\n{}", e);
-                    json!({})
-                }
-            };
+//            debug!("found img_id {}", img_ref);
+//            let image = match cli.image(img_ref) {
+//                Ok(v) => v,
+//                Err(e) => {
+//                    error!("Error finding image:\n{}", e);
+//                    json!({})
+//                }
+//            };
 
-            debug!("Starting image file \n{}", cc.get_image_filename(counter));
-            match zip.start_file(cc.get_image_filename(counter), options) {
-                Ok(v) => v,
-                Err(e) => {
-                    error!("Error starting ps file in zip \n{}", e);
-                    zip.finish()?;
-                    file.unlock()?;
-                    process::exit(1);
-                }
-            };
-            debug!("Writing image file \n{}", cc.get_image_filename(counter));
-            match zip.write_all(image.to_string().as_bytes()) {
-                Ok(v) => v,
-                Err(e) => {
-                    error!("Error writing ps file in zip \n{}", e);
-                    zip.finish()?;
-                    file.unlock()?;
-                    process::exit(1);
-                }
-            };
+//            debug!("Starting image file \n{}", cc.get_image_filename(counter));
+//            match zip.start_file(cc.get_image_filename(counter), options) {
+//                Ok(v) => v,
+//                Err(e) => {
+//                    error!("Error starting ps file in zip \n{}", e);
+//                    zip.finish()?;
+//                    file.unlock()?;
+//                    process::exit(1);
+//                }
+//            };
+//            debug!("Writing image file \n{}", cc.get_image_filename(counter));
+//            match zip.write_all(image.to_string().as_bytes()) {
+//                Ok(v) => v,
+//                Err(e) => {
+//                    error!("Error writing ps file in zip \n{}", e);
+//                    zip.finish()?;
+//                    file.unlock()?;
+//                    process::exit(1);
+//                }
+//            };
             debug!(
                 "Getting logs for container id {}",
                 container["id"].as_str().unwrap_or_default()
